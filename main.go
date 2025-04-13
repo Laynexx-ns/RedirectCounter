@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"log"
 	"net/http"
 )
@@ -40,6 +41,15 @@ func main() {
 			CounterLyceumRegulation: counterLyceumRegulation,
 		})
 	})
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{
+			"http://localhost:5173",
+			"https://localhost:5173",
+			"http://localhost:5174",
+			"https://localhost:5174",
+		},
+		AllowHeaders: []string{"*"},
+	}))
 
 	log.Fatal(e.Start(":8080"))
 
