@@ -47,6 +47,7 @@ func main() {
 			"https://localhost:5173",
 			"http://localhost:5174",
 			"https://localhost:5174",
+			"https://redirect-counter.vercel.app/",
 		},
 		AllowHeaders: []string{"*"},
 	}))
